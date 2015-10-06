@@ -41,15 +41,15 @@
         
         __block NSInteger testsCompleted = 0;
         __block NSInteger testsFailed = 0;
+
+        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         
+        [sessionConfig setURLCache:nil];
+        
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig];
+
         for (NSString *urlToTest in urlsToTest)
         {
-            NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-            
-            [sessionConfig setURLCache:nil];
-            
-            NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig];
-            
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlToTest] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
             
             [request setHTTPMethod:@"HEAD"];
