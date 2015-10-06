@@ -8,7 +8,7 @@ Recently Apple has allowed VPN's in the store that block in app advertisements. 
 
 This class will check if calls to certain URLs result in a specific error. If this is the case it is assumed that a VPN is blocking the call.
 
-It will assume ads are blocked only when none of the URLs were available.
+It will assume ads are blocked only when none of the URLs are available.
 
 # Usage
 
@@ -21,7 +21,7 @@ To simply test if ads are blocked you can do a single call:
 }];
 ```
 
-This method will also send a notification (ADBLOCKTESTER_UPDATE_NOTIFICATION) the first time you call this method or any other time if the status has changed.
+This method will also send a notification ("AdBlockTesterUpdateNotification") the first time you call this method or any other time if the status has changed.
 
 ## Automatic Updates
 
@@ -36,6 +36,8 @@ By default it will be updated every 3 minutes but you can also provide a custom 
 ```
 [[AdBlockTester sharedInstance] setAatomaticUpdatesEnabled:YES interval:180.0];
 ```
+
+Every time the update is done and the status has changes the "AdBlockTesterUpdateNotification" is broadcasted. If the status stays the same no notification is broadcasted.
 
 ## Tested URL's
 
