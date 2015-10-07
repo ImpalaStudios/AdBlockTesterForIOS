@@ -1,11 +1,11 @@
 #import <UIKit/UIKit.h>
 
-static NSString * _Nonnull const ADBLOCKTESTER_UPDATE_NOTIFICATION = @"AdBlockTesterUpdateNotification";
+static NSString * _Nonnull const ADBLOCKTESTER_UPDATE_NOTIFICATION = @"LiberateAdBlockTesterUpdateNotification";
 static NSString * _Nonnull const ADBLOCKTESTER_NOTIFICATIONKEY_ADSBLOCKED = @"AdsBlocked";
 
-typedef void (^AdBlockerTesterCompletionHandler)(BOOL adsBlocked);
+typedef void (^LiberateAdBlockerTesterCompletionHandler)(BOOL adsBlocked);
 
-@interface AdBlockTester : NSObject
+@interface LiberateAdBlockTester : NSObject
 {
 @private
     NSNumber *_previousAdsBlockedStatus;
@@ -22,11 +22,11 @@ typedef void (^AdBlockerTesterCompletionHandler)(BOOL adsBlocked);
 
 #pragma mark - Public Class Methods
 
-+ (AdBlockTester * _Nonnull)sharedInstance;
++ (LiberateAdBlockTester * _Nonnull)sharedInstance;
 
 #pragma mark - Public Instance Methods
 
-- (void)updateStatusWithCompletionHandler:(nullable AdBlockerTesterCompletionHandler)completionHandler;
+- (void)updateStatusWithCompletionHandler:(nullable LiberateAdBlockerTesterCompletionHandler)completionHandler;
 
 - (void)setAutomaticUpdatesEnabled:(BOOL)automaticUpdatesEnabled interval:(NSTimeInterval)interval;
 

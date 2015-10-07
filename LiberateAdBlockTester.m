@@ -1,6 +1,6 @@
-#import "AdBlockTester.h"
+#import "LiberateAdBlockTester.h"
 
-@implementation AdBlockTester
+@implementation LiberateAdBlockTester
 
 #pragma mark - Initialization
 
@@ -19,13 +19,13 @@
 
 #pragma mark - Public Class Methods
 
-+ (AdBlockTester *)sharedInstance
++ (LiberateAdBlockTester *)sharedInstance
 {
-    static AdBlockTester *sharedInstance = nil;
+    static LiberateAdBlockTester *sharedInstance = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^ {
-        sharedInstance = [[AdBlockTester alloc] init];
+        sharedInstance = [[LiberateAdBlockTester alloc] init];
     });
     
     return sharedInstance;
@@ -33,7 +33,7 @@
 
 #pragma mark - Public Instance Methods
 
-- (void)updateStatusWithCompletionHandler:(nullable AdBlockerTesterCompletionHandler)completionHandler
+- (void)updateStatusWithCompletionHandler:(nullable LiberateAdBlockerTesterCompletionHandler)completionHandler
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
         
